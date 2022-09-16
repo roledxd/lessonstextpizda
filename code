@@ -1,0 +1,66 @@
+/*
+checktemp
+
+0-20 on liiga külm
+21-40 on paras temperatuur
+41-60 on liiga kuum
+ 
+*/
+
+const checkTemp = (temp) => {
+    const t = Number(temp);
+    if(t <= 20) return -1;
+    if(t <= 40 && t >= 21) return 0;
+    return 1;
+}
+
+console.log(checkTemp(21))
+
+function whattemp(temp){
+    const checkTemp = (temp) => {
+        const t = Number(temp);
+        if(t <= 20) return -1;
+        if(t <= 40 && t >= 21) return 0;
+        return 1;
+    }
+    switch(checkTemp(temp)){
+        case -1:
+            console.log("liiga kulm")
+            break;
+        case 0:
+            console.log("norm");
+            break;
+        default:
+            console.log("hothot")
+            break;
+    }
+}
+
+
+//countcode function
+
+const countCode = (symbol) => {
+
+    var total = 0;
+    
+    data.forEach((code) => {
+        if(code.startsWith(symbol)) total += 1;
+    })
+    
+    console.log(total)
+}
+
+
+//kviitung
+
+const check = () => {
+    const rows = tellimus.rows;
+    var price = 0;
+    rows.forEach( (item) => {
+        console.log(`${item.name}\n EUR ${item.price}, KM: ${item.vat *100}% (${item.amount} Tükki)`);
+        price += ((item.amount * item.price) * 0.2) + (item.amount * item.price);
+    } )
+    console.log(price.toFixed(2) + " EUR IN TOTAL")
+}
+
+check();
